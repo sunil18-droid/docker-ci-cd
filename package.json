@@ -1,0 +1,9 @@
+{
+"name":"docker-ci-cd-demo",
+"version": "1.0.0",
+"description":"Demo application for a jenkins Docker CI/CD pipeline",
+"main":"server.js"
+"scripts":{
+"start":"node server.js"
+}
+}
