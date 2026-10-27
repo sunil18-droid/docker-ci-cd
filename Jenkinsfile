@@ -21,6 +21,7 @@ docker run -d --name docker-ci-cd-demo -p 3000:3000 docker-ci-cd-demo:latest
 }
 stage('Verify Deployment'){
 steps{
+sh 'sleep 5'
 sh'docker ps'
 sh 'curl -f http://localhost:3000'
 }
