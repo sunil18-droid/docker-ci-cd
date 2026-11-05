@@ -6,6 +6,19 @@ steps{
 echo 'Source code is available in the workspace'
 }
 }
+  stage('SonarQube Analysis')
+  {
+    steps{
+      script {
+        def scannerHome= tool 'SonarScanner'
+        withSonarQubeEnv('SonarQube'){
+          sh """
+          ${scannerHome}/bin/sonar-scanner \ -Dsonar.projectKey=docker-ci-cd \ -Dsonar.sources=.
+          """
+        }
+      }
+    }
+  }
 stage('Build Docker image'){
 steps{
 sh 'docker build -t docker-ci-cd-demo:latest .'
