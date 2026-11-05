@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy Container') {
             steps {
                 sh 'docker rm -f docker-ci-cd-demo || true'
-                sh 'docker run -d --name docker-ci-cd-demo -p 3000:3000 docker-ci-cd-demo:latest'
+                sh 'docker run -d --name docker-ci-cd-demo -p 3001:3000 docker-ci-cd-demo:latest'
             }
         }
 
@@ -42,7 +42,7 @@ pipeline {
             steps {
                 sh 'sleep 5'
                 sh 'docker ps'
-                sh 'curl -f http://localhost:3000'
+                sh 'curl -f http://localhost:3001'
             }
         }
     }
